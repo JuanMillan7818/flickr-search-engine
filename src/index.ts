@@ -1,15 +1,13 @@
-import express from 'express';
-import * as dotenv from "dotenv";
+import { App } from './App';
+import * as dotenv from 'dotenv';
 
-dotenv.config();
-const app = express();
+const start = () => {
+  dotenv.config();
+  let port = parseInt(process.env.PORT_SERVE || '');
+  let app = new App(port);
 
-app.get('/', (req, res) => {
-    res.send('Hello');
-});
+  app.listen();
+}
 
-app.listen(process.env.PORT_SERVE, () => {
-    console.log('Servidor en ejecucion');
-    
-})
+start();
 
