@@ -1,6 +1,15 @@
 import { NextFunction, Request, Response } from "express";
 const jwt = require('jsonwebtoken');
 
+/**
+ * @openapi
+ *   components:
+ *     securitySchemes:
+ *       bearerAuth: 
+ *         type: http
+ *         scheme: bearer
+ *         bearerFormat: JWT
+ */
 export const jwtBearer = (req: Request, resp: Response, next: NextFunction) => {
     const { authorization } = req.headers;
     if(!authorization) {

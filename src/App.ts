@@ -1,10 +1,13 @@
 import express, { Application } from 'express';
+import { createConnection } from 'typeorm';
+import swaggerJSDoc from 'swagger-jsdoc';
 import cors from 'cors';
 import { FlickrController } from './routes/flicker/flickr.controller.';
 import { RecordSearchController } from './routes/searchs/record-search.controller';
-import { createConnection } from 'typeorm';
 import { jwtBearer } from './middleware/auth';
 import { RenderController } from './routes/render/render.controller';
+import { options } from './swagger/swagger-options';
+import { serve, setup } from 'swagger-ui-express';
 
 export class App {
     private app: Application;
@@ -12,8 +15,6 @@ export class App {
     private flickrController: FlickrController;
     private recordSearchController: RecordSearchController;    
     private renderController: RenderController;
-    
-
 
     constructor(port: number) {        
         this.app = express();        
@@ -27,8 +28,8 @@ export class App {
             methods: 'GET,POST',
             origin: [`http://localhost:${this.port}/`]}));
         this.app.use(express.json());
-        this.app.use(express.urlencoded({ extended: true }));   
-        //this.app.use(jwtBearer);
+        this.app.use(express.urlencoded({ extended: true }));             
+        this.app.use('/api-docs', serve, setup(swaggerJSDoc(options)));      
     }    
     
     private async useControllers() {          
@@ -46,7 +47,7 @@ export class App {
         this.app.use('/',this.renderController.router);
     }           
 
-    public listen() {
+    public listen() {        
         this.app.listen(this.port, () => {
             console.log('Servidor en ejecucion\n');  
             console.log("Presiona CTRL-C para detenerlo\n");
