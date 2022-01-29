@@ -13,12 +13,13 @@ const jwt = require('jsonwebtoken');
 export const jwtBearer = (req: Request, resp: Response, next: NextFunction) => {
     const { authorization } = req.headers;
     if(!authorization) {
-        resp.status(401);
-    }       
+        return resp.sendStatus(401);
+    } 
+    //console.log('cabecera:', authorization);
+          
     const token = authorization.split(' ')[1];
     jwt.verify(token, process.env.TOKEN_SECRET, (err: any, da: any) => {                
-        if(err) {
-            console.log('error');            
+        if(err) {            
             return resp.sendStatus(401);
         }
         next();

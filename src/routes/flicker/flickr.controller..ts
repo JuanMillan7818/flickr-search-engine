@@ -53,13 +53,22 @@ export class FlickrController {
         this.router.post('/flicker', this.searchPhotos);
     }
   
-    public async searchPhotos(req: Request, resp: Response, next: NextFunction) {
+    public async searchPhotos(req: Request, resp: Response) {
         const body: SearchFlickerDTO = req.body;
-        const { tag } = body;
+        const { tag } = body;        
         if(!tag) {
             return resp.status(400).send({
                 code: 400,
-                message: 'The request body is incorrect for the requested request',
+                message: 'The request body is incorrect for the request',
+                example: {
+                    tag: 'cats'
+                }                
+            });
+        }
+        if(typeof(tag) != 'string') {
+            return resp.status(400).send({
+                code: 400,
+                message: 'The request body must be of type string',
                 example: {
                     tag: 'cats'
                 }                
@@ -70,7 +79,10 @@ export class FlickrController {
             await getRepository(RecordSearch).save(new RecordSearch(tag));
             resp.send(photos);
         } catch (error) {
-            next(error);    
+            return resp.status(500).send({
+                code: 500,
+                message: error
+            });
         }    
     }  
 }

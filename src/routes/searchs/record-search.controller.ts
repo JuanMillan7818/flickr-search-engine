@@ -42,11 +42,14 @@ export class RecordSearchController {
         this.router.get('/', this.getRecordSearch)
     }
 
-    public async getRecordSearch(req: Request, resp: Response, next: NextFunction) {                               
+    public async getRecordSearch(req: Request, resp: Response) {                               
         try {                                           
             resp.send(await getRepository(RecordSearch).find());
         } catch (error) {
-            next(error)            
+            return resp.status(500).send({
+                code: 500,
+                message: error
+            });          
         }       
     }   
 }

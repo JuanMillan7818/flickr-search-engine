@@ -6,13 +6,13 @@
  *      ReqSearchFlickerDTO:
  *        type: object
  *        required:
- *          - tags
+ *          - tag
  *        properties:
- *          tags:
+ *          tag:
  *            type: string
  *            description: keyword of what you want to search for on Flickr.
  *        example:
- *           tags: cats 
+ *           tag: cats 
 */
 export class SearchFlickerDTO {
     tag: string | undefined;

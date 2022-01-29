@@ -29,12 +29,21 @@ export class RenderController {
     }
     
     public renderAndJwt(req: Request, resp: Response) {
-        const accessToken = jwt.sign({
-            authorization: true
-            },
-            process.env.TOKEN_SECRET
-        );
-        resp.send(accessToken);        
+        try {
+            const accessToken = jwt.sign({
+                authorization: true
+                },
+                process.env.TOKEN_SECRET
+            );
+            resp.send({
+                token: accessToken
+            });                    
+        } catch (error) {
+            return resp.status(500).send({
+                code: 500,
+                message: error
+            });  
+        }
     }
 
     public routes() {
