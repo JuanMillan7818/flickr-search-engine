@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "Buscador de imagenes en Flickr",
   "author": "Juan Pablo Millan",
-  "license": "ISC",
+  "license": "ISC",  
   "scripts": {
-    "start": "react-scripts start",
+    "start-react": "react-scripts start",
+    "start": "ts-node ./src/server/index.ts",
     "build": "react-scripts build",
     "dev": "ts-node-dev ./src/server/index.ts",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
