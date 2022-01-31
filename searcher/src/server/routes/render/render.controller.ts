@@ -20,6 +20,19 @@ import * as jwt from "jsonwebtoken";
  *            description: An internal error has occurred.
  *          
  */
+/**
+ * @swagger
+ *  /token:
+ *      get:
+ *        description: Obtain a valid JWT token Bearer for the connection to the API.
+ *        tags: [default]
+ *        responses:
+ *          200: 
+ *            description: Successful.            
+ *          500:
+ *            description: An internal error has occurred.
+ *          
+ */
 export class RenderController {
     router: Router;
 
