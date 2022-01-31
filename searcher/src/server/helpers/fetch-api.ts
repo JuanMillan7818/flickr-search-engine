@@ -22,7 +22,7 @@ export const getPhotoFlickr = async (url: string): Promise<PhotosFlickr[]> =>{
                 
         let images: PhotosFlickr[] = [];
         json.items.map((image: any) => {
-            let tmp: PhotosFlickr = new PhotosFlickr(image.title, image.media.m, image.author); 
+            let tmp: PhotosFlickr = new PhotosFlickr(image.title, image.media.m, image.author, image.tags); 
             images.push(tmp);
         });
 

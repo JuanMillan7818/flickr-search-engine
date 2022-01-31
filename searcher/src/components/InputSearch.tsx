@@ -4,9 +4,9 @@ import { ContextAPI } from "../context/ContextAPI";
 import { DOMAIN, PATH_POST, PORT_SERVE } from "../environments/enviroments.dev";
 import { TypeRequest } from "../interfaces/TypeRequest";
 
-const InputSearch: React.FC = () => {
+const InputSearch: React.FC = () => {  
   const [search, setSearch] = useState("");
-  const { setUrl, setOptionsAPI } = useContext(ContextAPI);
+  const { setUrl, setOptionsAPI } = useContext(ContextAPI);  
 
   const handleChangeSearch = (e: CustomEvent) => {
     setSearch(e.detail.value);
@@ -22,11 +22,12 @@ const InputSearch: React.FC = () => {
       JWT: JSON.parse(localStorage.getItem("key")),
     };
     if (process.env.NODE_ENV === "production") {
+      setUrl(`${process.env.PUBLIC_URL}${process.env.PATH_POST}`)
     } else {
       setOptionsAPI(data);
-      setUrl(`${DOMAIN}:${PORT_SERVE}${PATH_POST}`);
+      setUrl(`${DOMAIN}:${PORT_SERVE}${PATH_POST}`);      
     }
-    setSearch("");
+    setSearch("");        
   };
 
   return (
@@ -35,8 +36,7 @@ const InputSearch: React.FC = () => {
         <IonToolbar>
           <IonSearchbar
             className="input-search"
-            autocomplete="off"
-            showCancelButton="focus"
+            autocomplete="off"            
             placeholder="Find your favorite image!"
             enterkeyhint="enter"
             value={search}

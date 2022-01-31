@@ -2,7 +2,7 @@ import { IonTitle } from "@ionic/react";
 import InputSearch from "./InputSearch";
 import ListImageFlickr from "./ListImageFlickr";
 
-const Background: React.FC = () => {
+const Background: React.FC = () => {  
   return (
     <>
       <div className="main">
@@ -11,7 +11,7 @@ const Background: React.FC = () => {
         </IonTitle>
         <InputSearch />
       </div>
-      <ListImageFlickr />
+      <ListImageFlickr/>
     </>
   );
 };

@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+/*------------------------- GENERALES -------------------*/
 * {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
 
+/*------------------------- Pagina principal -------------------*/
 .main {
     background-image: url('../../public/assets/1.jpg');
     background-position: center;    
@@ -14,37 +16,98 @@
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    display: grid;        
+    display: grid;   
+    grid-template-columns: minmax(250px, 1fr);     
 }
-
 .title-main {    
     justify-self: center;
     align-self: flex-end;
     padding-bottom: 1em;
     font-size: xx-large;
 }
-
 .trending {
     padding-top: 0.3em;
     justify-self: center;
     align-self: flex-start;
 }
-
 .container-input {    
     width: 70%;    
     justify-self: center;
     align-self: flex-start;    
     display: grid;
 }
-
 .input-search {
     width: 100%;    
 }
-
 .form-search {
     box-shadow: #ccc 0px 0px 15px;    
 }
-
 ion-toolbar {
     --background: transparent;
+}
+
+/*------------------------- Css de Cargando... -------------------*/
+.loading { 
+    display: grid;
+    margin-top: -4em;
+}
+svg {
+    justify-self: center;
+    width: 90px;
+    height: 90px;
+}
+svg rect { 
+    width: 90px;
+    height: 90px;
+    fill: none;
+    stroke-width: 100px;
+    stroke: #FF966F;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 50%;
+    animation: loader 2s linear infinite;
+}
+@keyframes loader {
+    to {
+        stroke-dashoffset: 250%;
+    }
+}
+
+/*------------------------- Layout mansory e imagenes -------------------*/
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	display: inline-block;    
+}
+.wrapper > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    position: relative;
+}
+.wrapper > div > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+}
+.wrapper {
+    margin-top: 1em;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-auto-rows: 200px;
+	grid-auto-flow: dense;
+}
+.wrapper .wide {
+	grid-column: span 2;
+}
+.wrapper .tall {
+	grid-row: span 2;
+}
+
+@media (max-width: 500px) {
+    .title-main {    
+        font-size: inherit;
+    }
 }

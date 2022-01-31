@@ -28,10 +28,12 @@ export class PhotosFlickr {
     title: string;
     image: string;
     author: string;
+    tags: string;
 
-    constructor(title: string, image: string, author: string) {
+    constructor(title: string, image: string, author: string, tags: string) {
         this.title = title;
         this.image = image;
         this.author = author;
+        this.tags = tags;
     }
 }

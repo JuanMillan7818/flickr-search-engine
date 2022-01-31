@@ -17,8 +17,8 @@ const Home: React.FC = () => {
     basic_url = `${process.env.PUBLIC_URL}${process.env.PATH_TOKEN}`;
   } else {
     basic_url = `${DOMAIN}:${PORT_SERVE}${PATH_TOKEN}`;
-  }
-  const [url, setUrl] = useState(basic_url);
+  }  
+  const [url, setUrl] = useState<string>(basic_url);
   const [optionsAPI, setOptionsAPI] = useState<TypeRequest>({ method: "GET" });
   const { items, load } = useFetch(url, optionsAPI);
 
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
         setUrl,
         setOptionsAPI,
         items,
-        load,
+        load
       }}
     >
       <IonPage>
