@@ -1,3 +1,3 @@
-import { Connection, createConnection } from "typeorm"
+import { createConnection } from "typeorm"
 
 export const connectionDB = createConnection();
