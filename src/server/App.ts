@@ -53,7 +53,7 @@ export class App {
     }           
 
     public listen() {        
-        this.app.listen(this.port, () => {
+        this.app.listen(this.port || 3000, () => {
             console.log('\nServidor en ejecucion (PORT -> )', this.port);  
             console.log("Presiona CTRL-C para detenerlo\n");
         });
