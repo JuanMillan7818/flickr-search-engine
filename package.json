@@ -7,6 +7,7 @@
   "scripts": {
     "start-react": "react-scripts start",
     "start": "ts-node ./src/server/index.ts",
+    "start:prod": "ts-node ./src/server/index.ts",
     "build": "react-scripts build",
     "dev": "ts-node-dev ./src/server/index.ts",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
