@@ -47,11 +47,12 @@ export class RenderController {
         this.router.get('/*', this.redirectUrl)
     }
 
-    public redirectUrl(req: Request, resp: Response) {                  
+    public redirectUrl(req: Request, resp: Response) {                                  
         resp.redirect('/');
     }
     
     public renderApp(req: Request, resp: Response) {                  
+        console.log('page:',req.url);
         resp.sendFile(req.url);
     }
 

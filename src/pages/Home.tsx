@@ -14,6 +14,8 @@ import "../theme/style.css";
 const Home: React.FC = () => {
   let basic_url: string;
   if (process.env.NODE_ENV === "production") {
+    console.log('render');
+    
     basic_url = `${process.env.PUBLIC_URL}${process.env.PATH_TOKEN}`;
   } else {
     basic_url = `${DOMAIN}:${PORT_SERVE}${PATH_TOKEN}`;
