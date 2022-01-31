@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Buscador de imagenes en Flickr",
   "author": "Juan Pablo Millan",
-  "license": "ISC",  
+  "license": "ISC", 
   "scripts": {
     "start-react": "react-scripts start",
     "start": "ts-node ./src/server/index.ts",
@@ -90,5 +90,8 @@
       "last 1 safari version"
     ]
   },
-  "types": "node_modules/"
+  "types": "node_modules/",
+  "jest": {
+    "rootDir": "src"
+  }
 }
