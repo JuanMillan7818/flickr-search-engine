@@ -24,7 +24,7 @@ export const useFetch = (url: string, { method, body }: TypeRequest) => {
       body: JSON.stringify(body),
     };
     if (method === "POST") setData({ load: false });
-    console.log(url, method, body, JSON.parse(localStorage.getItem("key")));
+    //console.log(url, method, body, JSON.parse(localStorage.getItem("key")));
     fetch(url, json)
       .then((resp) => resp.json())
       .then((result) => {
