@@ -26,8 +26,7 @@ export class App {
     
     private useMiddlewares() {        
         this.app.use(cors({
-            methods: 'GET,POST',
-            origin: '*',
+            methods: 'GET,POST',         
             allowedHeaders: ['Content-Type', 'Authorization']}));
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));             

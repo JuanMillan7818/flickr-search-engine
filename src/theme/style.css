@@ -45,6 +45,13 @@
 ion-toolbar {
     --background: transparent;
 }
+.search {
+    width: 90%;
+    display: inline-block;    
+}
+#icon {
+    margin-top: 5px;
+}
 
 /*------------------------- Css de Cargando... -------------------*/
 .loading { 
@@ -109,5 +116,13 @@ img {
 @media (max-width: 500px) {
     .title-main {    
         font-size: inherit;
+    }
+}
+@media (max-width: 1260px) {
+    .search {
+        width: 100%;
+    }
+    #icon {    
+        width: 100%;
     }
 }

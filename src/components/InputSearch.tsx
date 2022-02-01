@@ -1,8 +1,10 @@
-import { IonSearchbar, IonText, IonToolbar } from "@ionic/react";
+import { IonButton, IonIcon, IonSearchbar, IonText, IonToolbar } from "@ionic/react";
 import { FormEvent, useContext, useState } from "react";
 import { ContextAPI } from "../context/ContextAPI";
 import { DOMAIN, PATH_POST, PORT_SERVE } from "../environments/enviroments.dev";
 import { TypeRequest } from "../interfaces/TypeRequest";
+import { searchCircle } from 'ionicons/icons';
+
 
 const InputSearch: React.FC = () => {  
   const [search, setSearch] = useState("");
@@ -35,7 +37,7 @@ const InputSearch: React.FC = () => {
       <form onSubmit={handleSubmit} className="form-search">
         <IonToolbar>
           <IonSearchbar
-            className="input-search"
+            className="input-search search"
             autocomplete="off"            
             placeholder="Find your favorite image!"
             enterkeyhint="enter"
@@ -43,6 +45,9 @@ const InputSearch: React.FC = () => {
             onIonChange={(e) => handleChangeSearch(e)}
             animated
           />
+          <IonButton fill="outline" color="dark" shape="round" id="icon" onClick={handleSubmit}>
+            <IonIcon slot="start" icon={searchCircle} size="large"/>
+          </IonButton>
         </IonToolbar>
       </form>
       <IonText className="trending">
