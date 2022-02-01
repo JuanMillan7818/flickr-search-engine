@@ -16,6 +16,9 @@ const InputSearch: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if(search.trim() === '') {
+      return;
+    }
     let data: TypeRequest = {
       method: "POST",
       body: {
