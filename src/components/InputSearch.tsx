@@ -24,6 +24,7 @@ const InputSearch: React.FC = () => {
       JWT: JSON.parse(localStorage.getItem("key")),
     };
     if (process.env.NODE_ENV === "production") {
+      setOptionsAPI(data);
       setUrl(`${process.env.PUBLIC_URL}${process.env.REACT_APP_PATH_POST}`)
     } else {
       setOptionsAPI(data);
