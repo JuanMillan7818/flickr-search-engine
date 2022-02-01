@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "7f2de6bc-1034-41d8-97db-027dee2f6fd2",
+		"name": "search-engine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetImageFlickr",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{jwt}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tag\": \"nuevo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/api/search/flicker",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"api",
+						"search",
+						"flicker"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSearchs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{jwt}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/searchs",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"searchs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getToken",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "sss",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/token",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAppRender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Host",
+			"value": "http://localhost:30001"
+		},
+		{
+			"key": "jwt",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemF0aW9uIjp0cnVlLCJpYXQiOjE2NDM0MDc1MjN9.NhWg2GZvE3lYS4Lw7hibyGWoglUoO5N3JSH6Rtf5lGY"
+		}
+	]
+}
