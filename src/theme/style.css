@@ -24,11 +24,13 @@
     align-self: flex-end;
     padding-bottom: 1em;
     font-size: xx-large;
+    color: white;
 }
 .trending {
     padding-top: 0.3em;
     justify-self: center;
     align-self: flex-start;
+    color: white;
 }
 .container-input {    
     width: 70%;    
